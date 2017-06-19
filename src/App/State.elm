@@ -1,6 +1,7 @@
 module App.State exposing (..)
 
 import App.Types exposing (Model, Msg)
+import Port
 
 
 initialModel : Model
@@ -10,7 +11,7 @@ initialModel =
 
 init : ( Model, Cmd Msg )
 init =
-    ( initialModel, Cmd.none )
+    ( initialModel, Port.title "Sum It" )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )

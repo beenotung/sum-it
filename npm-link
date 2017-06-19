@@ -1,0 +1,9 @@
+#!/bin/bash
+## make shortcut to npm script
+set -e
+set -o pipefail
+
+echo "#!/bin/bash
+npm run $1" >> $1
+chmod +x $1
+echo "done."

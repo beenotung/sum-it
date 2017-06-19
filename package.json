@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "postinstall":"elm-package install --yes",
-    "build": "elm-make src/Main.elm",
+    "build": "elm-make src/Main.elm --output www/elm.js",
     "format": "elm-format --yes src/ tests/",
-    "start": "elm-reactor",
+    "serve": "elm-reactor",
     "test": "elm-test",
     "test:watch": "elm-test --watch"
   },
