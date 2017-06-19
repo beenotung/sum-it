@@ -1,0 +1,12 @@
+## build
+elm-stuff/
+index.html
+
+## library
+node_modules/
+
+## log
+npm-debug.log
+
+## IDE
+.idea/

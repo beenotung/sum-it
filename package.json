@@ -1,0 +1,37 @@
+{
+  "name": "sum-it",
+  "version": "1.0.0",
+  "description": "Make summary from a long article",
+  "main": "index.js",
+  "scripts": {
+    "postinstall":"elm-package install --yes",
+    "build": "elm-make",
+    "format": "elm-format --yes src/ tests/",
+    "start": "elm-reactor",
+    "test": "elm-test",
+    "test:watch": "elm-test --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beenotung/sum-it.git"
+  },
+  "keywords": [
+    "summary",
+    "sum",
+    "up",
+    "text",
+    "processing",
+    "utility",
+    "webapp"
+  ],
+  "author": "Beeno Tung",
+  "license": "BSD3",
+  "bugs": {
+    "url": "https://github.com/beenotung/sum-it/issues"
+  },
+  "homepage": "https://github.com/beenotung/sum-it#readme",
+  "devDependencies": {
+    "elm": "^0.18.0",
+    "elm-test": "^0.18.6"
+  }
+}
