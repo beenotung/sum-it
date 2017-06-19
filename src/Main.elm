@@ -33,7 +33,7 @@ view model =
 
 main =
     Html.program
-        { init = init
+        { init = init ! []
         , update = update
         , subscriptions = subscriptions
         , view = view
