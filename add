@@ -21,29 +21,35 @@ echo "module $name.State exposing (..)
 
 import $name.Types exposing (Model, Msg)
 
-init : (Model, Cmd Msg)
-init = ({}, Cmd.none)
+initialModel : Model
+initialModel = {}
 
-update : Msg -> Model -> (Model, Cmd Msg)
-update msg model = (model, Cmd.none)
+init : (Model, Cmd Msg)
+init = (initialModel, Cmd.none)
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    model ! []
 
 subscriptions : Model -> Sub Msg
-subscriptions _ = Cmd.none" >> State.elm
+subscriptions model = Sub.none" >> State.elm
 
 echo "module $name.View exposing (..)
 
 import Html exposing (..)
-import App.Types exposing (Model, Msg)
+import App.Types exposing ( Model, Msg )
+
 
 view : Model -> Html Msg
-view model = div [] []" >> View.elm
+view model = (node \"$name\") [] [ text \"$name is working.\" ]" >> View.elm
 
 echo "module $name.Rest exposing (..)
 
 import $name.Types exposing (Model, Msg)
 
 getModel : Model
-getModel = {}
-" >> Rest.elm
+getModel = {}" >> Rest.elm
+
+elm-format --yes *.elm
 
 echo "Added $name. Done."
