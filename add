@@ -1,0 +1,43 @@
+#!/bin/bash
+## add a elm-component
+set -e
+set -o pipefail
+
+if [ $# == 1 ]; then
+  name="$1";
+else
+  echo -n "name: "; read name;
+fi
+mkdir -p src/"$name";
+cd src/"$name";
+
+echo "module $name.Types exposing (..)
+
+type alias Model = {}
+
+type alias Msg = {}" >> Types.elm
+
+echo "module $name.State exposing (..)
+
+import $name.Types exposing (Model, Msg)
+
+init : (Model, Cmd Msg)
+init = ({}, Cmd.none)
+
+update : Msg -> Model -> (Model, Cmd Msg)
+update msg model = (model, Cmd.none)
+
+subscriptions : Model -> Sub Msg
+subscriptions _ = Cmd.none" >> State.elm
+
+echo "module $name.View exposing (..)
+
+import Html exposing (..)
+import App.Types exposing (Model, Msg)
+
+view : Model -> Html Msg
+view model = div [] []" >> View.elm
+
+echo "module $name.Rest exposing (..)" >> Rest.elm
+
+echo "Added $name. Done."
