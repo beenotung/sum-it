@@ -1,0 +1,2 @@
+#!/bin/bash
+elm-test --compiler `type -p elm-make`

@@ -1,0 +1,9 @@
+## build
+elm-stuff/
+index.html
+
+## log
+npm-debug.log
+
+## IDE
+.idea/
