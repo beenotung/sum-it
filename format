@@ -1,2 +1,2 @@
 #!/bin/bash
-elm-format --yes src/
+elm-format --yes src/ tests/Tests/
