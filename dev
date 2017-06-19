@@ -1,2 +1,4 @@
 #!/bin/bash
-./format && ./test
+clear
+./format && ./build
+#./format && ./test

@@ -8,6 +8,7 @@
     "build": "elm-make src/Main.elm --output www/elm.js",
     "format": "elm-format --yes src/ tests/",
     "serve": "elm-reactor",
+    "repl": "elm-repl",
     "test": "elm-test",
     "test:watch": "elm-test --watch"
   },

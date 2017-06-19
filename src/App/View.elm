@@ -24,8 +24,9 @@ view model =
         [ label [] [ text "Source Article" ]
         , br [] []
         , textarea [ style fillWidthLayout ] [ text model.source ]
-        , hr [] []
-        , label [] [ text "Summary" ]
+        , br [] []
+        , label [] [ text "Number of sentence for summary:" ]
+        , input [] []
         , button
             [ style
                 [ marginLeft "5px"
@@ -33,6 +34,8 @@ view model =
             , onClick Analyse
             ]
             [ text "Process" ]
+        , hr [] []
+        , label [] [ text "Summary" ]
         , br [] []
         , p [] [ text model.output ]
         ]

@@ -1,5 +1,6 @@
 module App.State exposing (..)
 
+import App.Logic exposing (processInput)
 import App.Types exposing (Model, Msg(Analyse))
 import Port
 
@@ -8,6 +9,7 @@ initialModel : Model
 initialModel =
     { source = "Paste the article here..."
     , output = "Press \"Process\" to analyse the article."
+    , numSentence = "7"
     }
 
 
@@ -20,14 +22,14 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         Analyse ->
-            let
-                wordStat =
-                    String.split " " model.source
+            (case String.toInt model.numSentence of
+                Err reason ->
+                    { model | output = reason }
 
-                newModel =
-                    { model | output = model.source }
-            in
-                newModel ! []
+                Ok numSentence ->
+                    { model | output = processInput { numSentence = numSentence, rawString = model.source } }
+            )
+                ! []
 
 
 subscriptions : Model -> Sub Msg
