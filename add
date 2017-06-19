@@ -38,6 +38,12 @@ import App.Types exposing (Model, Msg)
 view : Model -> Html Msg
 view model = div [] []" >> View.elm
 
-echo "module $name.Rest exposing (..)" >> Rest.elm
+echo "module $name.Rest exposing (..)
+
+import $name.Types exposing (Model, Msg)
+
+getModel : Model
+getModel = {}
+" >> Rest.elm
 
 echo "Added $name. Done."
