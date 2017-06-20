@@ -27,7 +27,7 @@ update msg model =
                     { model | output = reason }
 
                 Ok numSentence ->
-                    { model | output = processInput { numSentence = numSentence, rawString = model.source } }
+                    { model | output = processInput numSentence model.source }
             )
                 ! []
 

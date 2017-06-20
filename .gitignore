@@ -1,6 +1,7 @@
 ## build
 elm-stuff/
 www/elm.js
+index.html
 
 ## library
 node_modules/

@@ -37,7 +37,7 @@ subscriptions model = Sub.none" >> State.elm
 echo "module $name.View exposing (..)
 
 import Html exposing (..)
-import App.Types exposing ( Model, Msg )
+import $name.Types exposing ( Model, Msg )
 
 
 view : Model -> Html Msg

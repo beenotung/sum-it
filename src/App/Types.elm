@@ -29,7 +29,10 @@ type Word
 
 
 type alias Sentence =
-    List Word
+    { rawString : String
+    , words : List Word
+    , score : Int
+    }
 
 
 type alias Paragraph =
