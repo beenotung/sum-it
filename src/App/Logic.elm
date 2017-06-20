@@ -1,6 +1,5 @@
 module App.Logic exposing (..)
 
-import App.Types exposing (Param)
 import Parser.Core
 
 

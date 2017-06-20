@@ -1,9 +1,9 @@
 module App.View exposing (..)
 
 import Html exposing (..)
-import App.Types exposing (Model, Msg(Analyse))
+import App.Types exposing (Model, Msg(Analyse, SetNumSentence))
 import Html.Attributes exposing (style)
-import Html.Events exposing (onClick)
+import Html.Events exposing (..)
 import Style exposing (..)
 
 
@@ -26,7 +26,7 @@ view model =
         , textarea [ style fillWidthLayout ] [ text model.source ]
         , br [] []
         , label [] [ text "Number of sentence for summary:" ]
-        , input [] []
+        , input [ onInput SetNumSentence, Html.Attributes.value model.numSentenceStr ] []
         , button
             [ style
                 [ marginLeft "5px"
@@ -34,6 +34,8 @@ view model =
             , onClick Analyse
             ]
             [ text "Process" ]
+        , br [] []
+        , span [ style [ color "red" ] ] [ text model.hint ]
         , hr [] []
         , label [] [ text "Summary" ]
         , br [] []

@@ -6,18 +6,15 @@ import Dict exposing (Dict)
 type alias Model =
     { source : String
     , output : String
-    , numSentence : String
+    , numSentenceStr : String
+    , numSentence : Maybe Int
+    , hint : String
     }
 
 
 type Msg
     = Analyse
-
-
-type alias Param =
-    { numSentence : Int
-    , rawString : String
-    }
+    | SetNumSentence String
 
 
 type alias WordCounts =
